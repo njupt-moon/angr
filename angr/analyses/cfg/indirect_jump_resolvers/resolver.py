@@ -53,10 +53,9 @@ class IndirectJumpResolver(object):
             try:
                 if self.base_state.solver.is_true((self.base_state.memory.permissions(target) & 4) == 4):
                     return True
-            except:
+            except Exception:
                 pass
-            finally:
-                return False
+            return False
 
         if cfg._addr_in_exec_memory_regions(target):
             # the jump target is executable
